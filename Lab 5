@@ -279,7 +279,7 @@ Middle Ordovician   Late Ordovician        Llandovery           Wenlock         
 > cor(VectorBivalve,VectorBrachiopod)
 [1] -0.5362931
 
->#Brachiopod biodiversity is negatively correlated with bivalve biodiversity.
+> #Brachiopod biodiversity is negatively correlated with bivalve biodiversity.
 
 3) Looking just at changes in brachiopod richness through time, when did the greatest drop in brachiopod richness occur (i.e., between what two consecutive epochs)?
 Between the K/Pg boundary, that is, between the Late Cretaceous and the Palaeocene epochs.
@@ -289,7 +289,22 @@ Problem Set 4
 
 1) Repeat the above steps, but for the BrachiopodAbundance community matrix. What is the standardized richness you got for brachiopods. Show your code.
 
+> SampleAbundancesBr<-apply(BrachiopodAbundance,1,sum)
+> SampleAbundancesBr[which(SampleAbundancesBr==min(SampleAbundancesBr))]
+Pleistocene 
+         63 
+> StandardizedRichnessBr<-apply(BrachiopodAbundance,1,subsampleIndividuals,Quota=124)
+[1] "Fewer Individuals than Quota"
+[1] "Fewer Individuals than Quota"
+[1] "Fewer Individuals than Quota"
+> StandardizedRichnessBr[1:6]
+    Mississippian     Pennsylvanian  Early Ordovician Middle Ordovician   Late Ordovician        Llandovery 
+            66.43             50.17             57.12             74.64             67.00             64.70 
+
 2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
+
+standardized brachiopod richness=
+unstandardized brachiopod richness=
 
 3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the previous lab]
 
