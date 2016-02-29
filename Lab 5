@@ -1,0 +1,115 @@
+Tuan Syazana Tuan Ab Rashid
+Lab 5 - due Feb 22,2016
+
+Problem Set 1
+
+1) What is Bivalve generic richness in the Miocene? What code did you use to find out?
+
+> BivalveRichness<-which((BivalveAbundance["Miocene", ]) !=0)
+> length(BivalveRichness)
+[1] 634
+
+2) What is the Berger-Parker Index of Brachiopods genera in the Pliocene? What code did you use to find out? [Hint: the function max( ) may help you).
+
+> BrachiopodPliocenemax<-max(BrachiopodAbundance["Pliocene", ])
+> BrachiopodPliocenesum<-sum(BrachiopodAbundance["Pliocene", ])
+> BrachiopodPliocenemax/BrachiopodPliocenesum
+[1] 0.2222222
+
+3) What is the Gini-Simpson Index of Brachiopods during the Late Ordovician? What code did you use to find out?
+
+> BrachiopodLateOrdoviciansum<-sum(BrachiopodAbundance["Late Ordovician", ])
+> BrachiopodLateOrdoviciansum
+[1] 6154
+> AbundancesBLO<-BrachiopodAbundance["Late Ordovician", ] 
+> 1 - sum((AbundancesBLO/BrachiopodLateOrdoviciansum)^2) 
+[1] 0.9784588
+
+4) What is the Shannon's Entropy of Bivalves during the Late Cretaceous? What code did you use to find out?
+
+> BivalveLCsum<-sum(BivalveAbundance["Late Cretaceous", ])
+> AbundanceBLC<-BivalveAbundance["Late Cretaceous", ]
+> NewAbundanceBLC<-AbundanceBLC[AbundanceBLC>0]
+> A <-NewAbundanceBLC/BivalveLCsum
+> B <-log(NewAbundanceBLC/BivalveLCsum)
+> C <-sum(A*B)
+> -1*C
+[1] 5.086654
+
+5) What is the Shannon's Entropy of Bivalves during the Paleocene? What code did you use to find out?
+> BivalvePsum<-sum(BivalveAbundance["Paleocene", ])
+> AbundanceBP<-BivalveAbundance["Paleocene", ]
+> NewAbundanceBP<-AbundanceBP[AbundanceBP>0]
+> A <-NewAbundanceBP/BivalvePsum
+> B <-log(NewAbundanceBP/BivalvePsum)
+> C <-sum(A*B)
+> -1*C
+[1] 4.511063
+
+6) What is the percent change in Shannon's Entropy between the Late Cretaceous and the Paleocene? Can you think of any major events that happened between the Late Cretaceous and Paleocene that might be relevant to biodiversity? [Hint: Use google if you don't know.] Is this reflected in this index?
+
+> ((4.511063 - 5.086654)/5.086654)*100 
+[1] -11.31571
+
+The percent change in Shannon’s Entropy between the Late Cretaceous and the Palaeocene is -11.31571%. The K/Pg mass extinction event. Yes this is reflected by the negative percent change of the index.
+
+7) What if you use the exp( ) function to exponentiate the Shannon's Entropies you calculated in questions 4,5, and 6 (i.e., e^Shannon's Entropy)? What percent of diversity is gained/lost? Does this better reflect the change between the Late Cretaceous and Paleocene? Why or why not?
+
+e^(Shannon's Entropy of Bivalves during the Late Cretaceous)
+> exp(5.086654)
+[1] 161.8474
+
+e^(Shannon's Entropy of Bivalves during the Paleocene)
+> exp(4.511063)
+[1] 91.01852
+
+e^(percent change in Shannon's Entropy between the Late Cretaceous and the Paleocene)
+> exp(-11.31571)
+[1] 1.218006e-05
+
+I think it better reflects the change between the Late Cretaceous and Paleocene because it provides a bigger range of values.
+
+-------------------------------------------------------------------------
+Problem Set 2
+
+Install (if you have not already) and load the vegan package into R. Read the help file for the diversity( ) function - ?diversity or help(diversity). You must have already loaded the vegan package in order for it to run.
+
+1) Use the specnumber( ) function (also from the vegan package) to find Bivalve richness in the Miocene. What code did you use to find out?
+
+> specnumber(BivalveAbundance["Miocene", ], , MARGIN = 1)
+[1] 634
+
+2) Use the diversity( ) function to find the Gini-Simpson Index of Brachiopods during the Late Ordovician? What code did you use to find out?
+
+> diversity(BrachiopodAbundance["Late Ordovician", ], index = "simpson", MARGIN = 1, base = exp(1))
+[1] 0.9784588
+
+3) Use the diversity( ) function to find the Shannon's Entropy of Bivalves during the Late Cretaceous? What code did you use to find out?
+
+> diversity(BivalveAbundance["Late Cretaceous", ], index = "shannon", MARGIN = 1, base = exp(1))
+[1] 5.086512
+
+4) Use the diversity( ) function to find the Shannon's Entropy of Bivalves during the Paleocene? What code did you use to find out?
+
+> diversity(BivalveAbundance["Paleocene", ], index = "shannon", MARGIN = 1, base = exp(1))
+[1] 4.511063
+
+-------------------------------------------------------------------------
+Problem Set 3
+
+1) Is brachiopod richness positively, negatively, or un-correlated with bivalve richness? Show your code?
+
+2) Is brachiopod biodiversity positively, negatively, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
+
+3) Looking just at changes in brachiopod richness through time, when did the greatest drop in brachiopod richness occur (i.e., between what two consecutive epochs)?
+
+-------------------------------------------------------------------------
+Problem Set 4
+
+1) Repeat the above steps, but for the BrachiopodAbundance community matrix. What is the standardized richness you got for brachiopods. Show your code.
+
+2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
+
+3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the previous lab]
+
+4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
