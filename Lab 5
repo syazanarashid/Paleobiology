@@ -98,11 +98,191 @@ Install (if you have not already) and load the vegan package into R. Read the he
 -------------------------------------------------------------------------
 Problem Set 3
 
+> specnumber(BivalveAbundance, )
+    Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow 
+              104                48                87                56                66                81 
+          Pridoli     Mississippian    Early Devonian   Middle Devonian     Late Devonian        Cisuralian 
+               51                99               111                88                70               160 
+    Late Jurassic            Eocene   Late Cretaceous  Early Cretaceous   Middle Jurassic  Early Ordovician 
+              270               512               573               393               202                42 
+        Paleocene           Miocene         Oligocene    Early Jurassic       Pleistocene       Guadalupian 
+              304               634               355               217               498               191 
+  Middle Triassic     Late Triassic          Pliocene         Lopingian    Early Triassic 
+              151               242               534               156               101 
+> specnumber(BrachiopodAbundance, )
+    Mississippian     Pennsylvanian  Early Ordovician Middle Ordovician   Late Ordovician        Llandovery 
+              314               284               141               282               331               271 
+          Wenlock            Ludlow           Pridoli    Early Devonian   Middle Devonian     Late Devonian 
+              257               234               138               497               353               274 
+       Cisuralian     Late Jurassic            Eocene   Late Cretaceous  Early Cretaceous   Middle Jurassic 
+              564               111                57                96               125               175 
+        Paleocene         Lopingian    Early Jurassic       Guadalupian   Middle Triassic     Late Triassic 
+               29               406               130               549               111               193 
+          Miocene    Early Triassic          Pliocene       Pleistocene         Oligocene 
+               45                63                23                19                30 
+> OutOrderRichBivalve<-array(c(104, 48, 87, 56, 66, 81, 51, 99, 111, 88, 70, 160, 270, 512, 573, 393, 202, 42, 304, 634, 355, 217, 498, 191, 151, 242, 534, 156, 101),dimnames=list(c("Pennsylvanian", "Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli", "Mississippian", "Early Devonian", "Middle Devonian", "Late Devonian", "Cisuralian", "Late Jurassic", "Eocene", "Late Cretaceous", "Early Cretaceous", "Middle Jurassic", "Early Ordovician", "Paleocene", "Miocene", "Oligocene", "Early Jurassic", "Pleistocene", "Guadalupian", "Middle Triassic",  "Late Triassic", "Pliocene", "Lopingian", "Early Triassic")))
+> OutOrderRichBivalve
+    Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow 
+              104                48                87                56                66                81 
+          Pridoli     Mississippian    Early Devonian   Middle Devonian     Late Devonian        Cisuralian 
+               51                99               111                88                70               160 
+    Late Jurassic            Eocene   Late Cretaceous  Early Cretaceous   Middle Jurassic  Early Ordovician 
+              270               512               573               393               202                42 
+        Paleocene           Miocene         Oligocene    Early Jurassic       Pleistocene       Guadalupian 
+              304               634               355               217               498               191 
+  Middle Triassic     Late Triassic          Pliocene         Lopingian    Early Triassic 
+              151               242               534               156               101 
+> InOrderRichBivalve<-OutOrderRichBivalve[c("Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli","Early Devonian", "Middle Devonian", "Late Devonian", "Mississippian", "Pennsylvanian", "Cisuralian", "Guadalupian", "Lopingian", "Early Triassic", "Middle Triassic", "Late Triassic", "Early Jurassic", "Middle Jurassic", "Late Jurassic", "Early Cretaceous", "Late Cretaceous", "Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene", "Pleistocene")]
+> InOrderRichBivalve
+Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow           Pridoli 
+               48                87                56                66                81                51 
+   Early Devonian   Middle Devonian     Late Devonian     Mississippian     Pennsylvanian        Cisuralian 
+              111                88                70                99               104               160 
+      Guadalupian         Lopingian    Early Triassic   Middle Triassic     Late Triassic    Early Jurassic 
+              191               156               101               151               242               217 
+  Middle Jurassic     Late Jurassic  Early Cretaceous   Late Cretaceous         Paleocene            Eocene 
+              202               270               393               573               304               512 
+        Oligocene           Miocene          Pliocene       Pleistocene 
+              355               634               534               498 
+> OutOrderRichBrachiopod<-array(c(314, 284, 141, 282, 331, 271, 257, 234, 138, 497, 353, 274, 564, 111, 57, 96, 125, 175, 29, 406, 130, 549, 111, 193, 45, 63, 23, 19, 30),dimnames=list(c("Mississippian", "Pennsylvanian", "Early Ordovician", "Middle Ordovician", "Late Ordovician", "Llandovery", "Wenlock", "Ludlow", "Pridoli", "Early Devonian", "Middle Devonian", "Late Devonian", "Cisuralian", "Late Jurassic", "Eocene", "Late Cretaceous", "Early Cretaceous", "Middle Jurassic", "Paleocene", "Lopingian", "Early Jurassic", "Guadalupian", "Middle Triassic", "Late Triassic", "Miocene", "Early Triassic", "Pliocene", "Pleistocene", "Oligocene")))
+> 
+> OutOrderRichBrachiopod
+    Mississippian     Pennsylvanian  Early Ordovician Middle Ordovician   Late Ordovician        Llandovery 
+              314               284               141               282               331               271 
+          Wenlock            Ludlow           Pridoli    Early Devonian   Middle Devonian     Late Devonian 
+              257               234               138               497               353               274 
+       Cisuralian     Late Jurassic            Eocene   Late Cretaceous  Early Cretaceous   Middle Jurassic 
+              564               111                57                96               125               175 
+        Paleocene         Lopingian    Early Jurassic       Guadalupian   Middle Triassic     Late Triassic 
+               29               406               130               549               111               193 
+          Miocene    Early Triassic          Pliocene       Pleistocene         Oligocene 
+               45                63                23                19                30 
+> InOrderRichBrachiopod<-OutOrderRichBrachiopod[c("Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli","Early Devonian", "Middle Devonian", "Late Devonian", "Mississippian", "Pennsylvanian", "Cisuralian", "Guadalupian", "Lopingian", "Early Triassic", "Middle Triassic", "Late Triassic", "Early Jurassic", "Middle Jurassic", "Late Jurassic", "Early Cretaceous", "Late Cretaceous", "Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene", "Pleistocene")]
+> 
+> InOrderRichBrachiopod
+Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow           Pridoli 
+              282               331               271               257               234               138 
+   Early Devonian   Middle Devonian     Late Devonian     Mississippian     Pennsylvanian        Cisuralian 
+              497               353               274               314               284               564 
+      Guadalupian         Lopingian    Early Triassic   Middle Triassic     Late Triassic    Early Jurassic 
+              549               406                63               111               193               130 
+  Middle Jurassic     Late Jurassic  Early Cretaceous   Late Cretaceous         Paleocene            Eocene 
+              175               111               125                96                29                57 
+        Oligocene           Miocene          Pliocene       Pleistocene 
+               30                45                23                19 
+————
+> diversity(BivalveAbundance, )
+    Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery 
+         3.755572          3.227148          3.560792          3.148909 
+          Wenlock            Ludlow           Pridoli     Mississippian 
+         3.628257          3.567614          3.294253          3.844638 
+   Early Devonian   Middle Devonian     Late Devonian        Cisuralian 
+         3.988784          3.397504          3.149485          4.259922 
+    Late Jurassic            Eocene   Late Cretaceous  Early Cretaceous 
+         4.571792          4.922718          5.086512          4.894056 
+  Middle Jurassic  Early Ordovician         Paleocene           Miocene 
+         4.410415          3.357938          4.511063          5.375537 
+        Oligocene    Early Jurassic       Pleistocene       Guadalupian 
+         4.972140          4.299667          5.267982          4.454766 
+  Middle Triassic     Late Triassic          Pliocene         Lopingian 
+         4.127591          4.516975          5.334865          4.160419 
+   Early Triassic 
+         2.905877 
+> diversity(BrachiopodAbundance, )
+    Mississippian     Pennsylvanian  Early Ordovician Middle Ordovician 
+         4.618776          4.096848          4.200277          4.859976 
+  Late Ordovician        Llandovery           Wenlock            Ludlow 
+         4.664635          4.535380          4.658886          4.664010 
+          Pridoli    Early Devonian   Middle Devonian     Late Devonian 
+         4.325749          5.296419          4.546489          4.398376 
+       Cisuralian     Late Jurassic            Eocene   Late Cretaceous 
+         5.353992          3.927540          3.338419          3.517404 
+ Early Cretaceous   Middle Jurassic         Paleocene         Lopingian 
+         4.085487          4.164713          2.500670          4.734245 
+   Early Jurassic       Guadalupian   Middle Triassic     Late Triassic 
+         3.729191          5.325329          3.824816          4.185167 
+          Miocene    Early Triassic          Pliocene       Pleistocene 
+         3.216753          3.125604          2.611886          2.573816 
+        Oligocene 
+         3.106048 
+> 
+> OutOrderBivalve<-array(c(3.755572,3.227148,3.560792,3.148909,3.628257,3.567614,3.294253,3.844638, 3.988784, 3.397504, 3.149485, 4.259922, 4.571792, 4.922718, 5.086512, 4.894056, 4.410415, 3.357938, 4.511063, 5.375537, 4.972140, 4.299667, 5.267982, 4.454766, 4.127591, 4.516975, 5.334865, 4.160419, 2.905877),dimnames=list(c("Pennsylvanian", "Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli", "Mississippian", "Early Devonian", "Middle Devonian", "Late Devonian", "Cisuralian", "Late Jurassic", "Eocene", "Late Cretaceous", "Early Cretaceous", "Middle Jurassic", "Early Ordovician", "Paleocene", "Miocene", "Oligocene", "Early Jurassic", "Pleistocene", "Guadalupian", "Middle Triassic",  "Late Triassic", "Pliocene", "Lopingian", "Early Triassic")))
+> OutOrderBivalve
+    Pennsylvanian Middle Ordovician   Late Ordovician        Llandovery           Wenlock 
+         3.755572          3.227148          3.560792          3.148909          3.628257 
+           Ludlow           Pridoli     Mississippian    Early Devonian   Middle Devonian 
+         3.567614          3.294253          3.844638          3.988784          3.397504 
+    Late Devonian        Cisuralian     Late Jurassic            Eocene   Late Cretaceous 
+         3.149485          4.259922          4.571792          4.922718          5.086512 
+ Early Cretaceous   Middle Jurassic  Early Ordovician         Paleocene           Miocene 
+         4.894056          4.410415          3.357938          4.511063          5.375537 
+        Oligocene    Early Jurassic       Pleistocene       Guadalupian   Middle Triassic 
+         4.972140          4.299667          5.267982          4.454766          4.127591 
+    Late Triassic          Pliocene         Lopingian    Early Triassic 
+         4.516975          5.334865          4.160419          2.905877 
+> InOrderBivalve<-OutOrderBivalve[c("Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli","Early Devonian", "Middle Devonian", "Late Devonian", "Mississippian", "Pennsylvanian", "Cisuralian", "Guadalupian", "Lopingian", "Early Triassic", "Middle Triassic", "Late Triassic", "Early Jurassic", "Middle Jurassic", "Late Jurassic", "Early Cretaceous", "Late Cretaceous", "Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene", "Pleistocene")]
+> InOrderBivalve
+Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow 
+         3.227148          3.560792          3.148909          3.628257          3.567614 
+          Pridoli    Early Devonian   Middle Devonian     Late Devonian     Mississippian 
+         3.294253          3.988784          3.397504          3.149485          3.844638 
+    Pennsylvanian        Cisuralian       Guadalupian         Lopingian    Early Triassic 
+         3.755572          4.259922          4.454766          4.160419          2.905877 
+  Middle Triassic     Late Triassic    Early Jurassic   Middle Jurassic     Late Jurassic 
+         4.127591          4.516975          4.299667          4.410415          4.571792 
+ Early Cretaceous   Late Cretaceous         Paleocene            Eocene         Oligocene 
+         4.894056          5.086512          4.511063          4.922718          4.972140 
+          Miocene          Pliocene       Pleistocene 
+         5.375537          5.334865          5.267982 
+> 
+> OutOrderBrachiopod<-array(c(4.618776, 4.096848, 4.200277, 4.859976, 4.664635, 4.535380, 4.658886, 4.664010, 4.325749, 5.296419, 4.546489, 4.398376, 5.353992, 3.927540, 3.338419, 3.517404, 4.085487, 4.164713, 2.500670, 4.734245, 3.729191, 5.325329, 3.824816, 4.185167, 3.216753, 3.125604, 2.611886, 2.573816, 3.106048),dimnames=list(c("Mississippian", "Pennsylvanian", "Early Ordovician", "Middle Ordovician", "Late Ordovician", "Llandovery", "Wenlock", "Ludlow", "Pridoli", "Early Devonian", "Middle Devonian", "Late Devonian", "Cisuralian", "Late Jurassic", "Eocene", "Late Cretaceous", "Early Cretaceous", "Middle Jurassic", "Paleocene", "Lopingian", "Early Jurassic", "Guadalupian", "Middle Triassic", "Late Triassic", "Miocene", "Early Triassic", "Pliocene", "Pleistocene", "Oligocene")))
+> OutOrderBrachiopod
+    Mississippian     Pennsylvanian  Early Ordovician Middle Ordovician   Late Ordovician 
+         4.618776          4.096848          4.200277          4.859976          4.664635 
+       Llandovery           Wenlock            Ludlow           Pridoli    Early Devonian 
+         4.535380          4.658886          4.664010          4.325749          5.296419 
+  Middle Devonian     Late Devonian        Cisuralian     Late Jurassic            Eocene 
+         4.546489          4.398376          5.353992          3.927540          3.338419 
+  Late Cretaceous  Early Cretaceous   Middle Jurassic         Paleocene         Lopingian 
+         3.517404          4.085487          4.164713          2.500670          4.734245 
+   Early Jurassic       Guadalupian   Middle Triassic     Late Triassic           Miocene 
+         3.729191          5.325329          3.824816          4.185167          3.216753 
+   Early Triassic          Pliocene       Pleistocene         Oligocene 
+         3.125604          2.611886          2.573816          3.106048 
+> InOrderBrachiopod<-OutOrderBrachiopod[c("Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli","Early Devonian", "Middle Devonian", "Late Devonian", "Mississippian", "Pennsylvanian", "Cisuralian", "Guadalupian", "Lopingian", "Early Triassic", "Middle Triassic", "Late Triassic", "Early Jurassic", "Middle Jurassic", "Late Jurassic", "Early Cretaceous", "Late Cretaceous", "Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene", "Pleistocene")]
+> InOrderBrachiopod
+Middle Ordovician   Late Ordovician        Llandovery           Wenlock            Ludlow 
+         4.859976          4.664635          4.535380          4.658886          4.664010 
+          Pridoli    Early Devonian   Middle Devonian     Late Devonian     Mississippian 
+         4.325749          5.296419          4.546489          4.398376          4.618776 
+    Pennsylvanian        Cisuralian       Guadalupian         Lopingian    Early Triassic 
+         4.096848          5.353992          5.325329          4.734245          3.125604 
+  Middle Triassic     Late Triassic    Early Jurassic   Middle Jurassic     Late Jurassic 
+         3.824816          4.185167          3.729191          4.164713          3.927540 
+ Early Cretaceous   Late Cretaceous         Paleocene            Eocene         Oligocene 
+         4.085487          3.517404          2.500670          3.338419          3.106048 
+          Miocene          Pliocene       Pleistocene 
+         3.216753          2.611886          2.573816 
+> 
 1) Is brachiopod richness positively, negatively, or un-correlated with bivalve richness? Show your code?
+
+> VectorRichBivalve<-c(48, 87, 56, 66, 81, 51, 111, 88, 70, 99, 104, 160, 191, 156, 101, 151, 242, 217, 202, 270, 393, 573, 304, 512, 355, 634, 534, 498)
+> VectorRichBrachiopod<-c(282, 331, 271, 257, 234, 138, 497, 353, 274, 314, 284, 564, 549, 406, 63, 111, 193, 130, 175, 111, 125, 96, 29, 57, 30, 45, 23, 19)
+> cor(VectorRichBivalve,VectorRichBrachiopod)
+[1] -0.596469
+> #Brachiopod biodiversity is negatively correlated with bivalve biodiversity.
 
 2) Is brachiopod biodiversity positively, negatively, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
 
+> VectorBivalve<-c(3.227148, 3.560792, 3.148909, 3.628257, 3.567614, 3.294253, 3.988784, 3.397504, 3.149485, 3.844638, 3.755572, 4.259922, 4.454766, 4.160419, 2.905877, 4.127591, 4.516975, 4.299667, 4.410415, 4.571792, 4.894056, 5.086512, 4.511063, 4.922718, 4.972140, 5.375537, 5.334865, 5.267982)
+> VectorBrachiopod<-c(4.859976, 4.664635, 4.535380, 4.658886, 4.664010, 4.325749, 5.296419, 4.546489, 4.398376, 4.618776, 4.096848, 5.353992, 5.325329, 4.734245, 3.125604, 3.824816, 4.185167, 3.729191, 4.164713, 3.927540, 4.085487, 3.517404, 2.500670, 3.338419, 3.106048, 3.216753, 2.611886, 2.573816)
+> cor(VectorBivalve,VectorBrachiopod)
+[1] -0.5362931
+
+>#Brachiopod biodiversity is negatively correlated with bivalve biodiversity.
+
 3) Looking just at changes in brachiopod richness through time, when did the greatest drop in brachiopod richness occur (i.e., between what two consecutive epochs)?
+Between the K/Pg boundary, that is, between the Late Cretaceous and the Palaeocene epochs.
 
 -------------------------------------------------------------------------
 Problem Set 4
