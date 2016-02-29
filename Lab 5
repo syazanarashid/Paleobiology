@@ -63,9 +63,10 @@ e^(Shannon's Entropy of Bivalves during the Paleocene)
 > exp(4.511063)
 [1] 91.01852
 
-e^(percent change in Shannon's Entropy between the Late Cretaceous and the Paleocene)
-> exp(-11.31571)
-[1] 1.218006e-05
+> ((91.01852 - 161.8474)/161.8474)*100
+[1] -43.76275
+
+The percent change in Shannon’s Entropy between the Late Cretaceous and the Palaeocene is -43.76275% 
 
 I think it better reflects the change between the Late Cretaceous and Paleocene because it provides a bigger range of values.
 
