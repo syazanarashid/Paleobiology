@@ -1,9 +1,11 @@
 Tuan Syazana Tuan Ab Rashid
 Lab 4 - Due Feb 22, 2016
 
-Problem Set I
+20/20
 
-1) How many unique genera are in the Miocene,Early Jurasic,Late Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
+## Problem Set I
+
+1) How many unique genera are in the Miocene, Early Jurasic, Late Cretaceous, and Pennsylvanian epochs (not total, each)? What code did you use to find out?
 
 >dim(PresencePBDB)
 [1] 29 903
@@ -54,8 +56,7 @@ Problem Set I
 
 Present in all epochs from Pridoli to Pleistocene. If the Mytilus was present in two separate epochs, we can infer that it was also present during the missing time in between. The Mytilus would not have had gone through extinction and then reappear at a later time. The absence of its record in the Paleobiology Database may be due to preservation issues or insufficient data. 
 
------------------------------------------------------------------------
-Problem Set II
+# Problem Set II
 
 1) Using your own custom R code, find the Jaccard similarity of the Pleistocene and Miocene "samples" in your PresencePBDB matrix. It is possible to code this entirely using only functions discussed in the R Tutorial. The key is to use apply( ), sum( ), table( ), and judicious use of matrix subscriptng.
 
@@ -103,8 +104,7 @@ Pleistocene 0.21870048 0.44444444 0.26910299 0.17207792 0.12692967
 
 #Paleocene and Pleistocene are the most dissimilar with a Jaccard distance of 0.44444444
 
------------------------------------------------------------------------
-Problem Set III
+## Problem Set III
 
 1) Create a subset of the PresencePBDB matrix which contains just the following rows - "Pliocene", "Oligocene", "Paleocene", "Early Cretaceous", "Late Jurassic", and "Middle Jurassic". Name this subset RandomEpochs. Show your code.
 
@@ -174,3 +174,5 @@ Ordovician<-cullMatrix(Ordovician,minOccurrences=2,minDiversity=25)
  137.840000  135.354335 
 
   #the geoplates plotted at more positive DCA1 values are farther towards the Southern hemisphere whereas geoplates plotted at towards more negative DCA1 values are farther northwards (e.g. geoplate 714 is at -81 latitude, geoplate 102 is at 10 latitude)
+  
+  > Interesting, many people did not report a relationship.
