@@ -313,7 +313,13 @@ Pleistocene
 
 3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the previous lab]
 
-
+> OutOrderStandBi<-array(c(43.54, 36.78, 41.99, 37.74, 46.34, 42.95, 34.67, 47.89, 51.21, 35.92, 33.26, 57.74, 64.50, 73.46, 78.77, 73.29, 61.67, 42.00, 63.66, 85.78, 76.90, 57.63, 84.14, 62.47, 54.00, 63.15, 85.68, 53.83, 27.61),dimnames=list(c("Pennsylvanian", "Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli", "Mississippian", "Early Devonian", "Middle Devonian", "Late Devonian", "Cisuralian", "Late Jurassic", "Eocene", "Late Cretaceous", "Early Cretaceous", "Middle Jurassic", "Early Ordovician", "Paleocene", "Miocene", "Oligocene", "Early Jurassic", "Pleistocene", "Guadalupian", "Middle Triassic",  "Late Triassic", "Pliocene", "Lopingian", "Early Triassic")))
+> 
+> InOrderStandBi<-OutOrderStandBi[c("Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli","Early Devonian", "Middle Devonian", "Late Devonian", "Mississippian", "Pennsylvanian", "Cisuralian", "Guadalupian", "Lopingian", "Early Triassic", "Middle Triassic", "Late Triassic", "Early Jurassic", "Middle Jurassic", "Late Jurassic", "Early Cretaceous", "Late Cretaceous", "Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene", "Pleistocene")]
+>
+> plot(InOrderStandBr,InOrderStandBi)
+> plot(InOrderRichBrachiopod,InOrderRichBivalve)
+> #Both plots are negatively correlated but the standardized brachiopod richness versus standardized bivalve richness plot seems more linear whereas the unstandardized brachiopod richness versus unstandardized bivalve richness seems more exponential. The scale of the plots are also different from one another.
 
 4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
 
