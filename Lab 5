@@ -270,7 +270,7 @@ Middle Ordovician   Late Ordovician        Llandovery           Wenlock         
 > VectorRichBrachiopod<-c(282, 331, 271, 257, 234, 138, 497, 353, 274, 314, 284, 564, 549, 406, 63, 111, 193, 130, 175, 111, 125, 96, 29, 57, 30, 45, 23, 19)
 > cor(VectorRichBivalve,VectorRichBrachiopod)
 [1] -0.596469
-> #Brachiopod biodiversity is negatively correlated with bivalve biodiversity.
+> #Brachiopod richness is negatively correlated with bivalve richness.
 
 2) Is brachiopod biodiversity positively, negatively, or un-correlated with bivalve biodiversity when using the Gini-Simpson index? Show your code?
 
@@ -301,8 +301,15 @@ Pleistocene
 
 2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
 
-Both the standardized brachiopod richness and the unstandardized brachiopod richness start at a lower value in the Pennsylvanian and increase until the Mississippian, then decrease then increase again until the Middle Ordovician then decreases again.
-
+> OutOrderStandBr<-array(c(42.44, 34.27, 38.20, 46.17, 42.18, 41.34, 43.56, 44.49, 40.13, 50.02, 40.88, 39.25, 50.98, 33.86, 27.43, 28.95, 36.35, 37.18, 16.87, 43.14, 31.08, 50.61, 32.97, 37.05, 24.47, 23.95, 18.75, 19.00, 25.47),dimnames=list(c("Mississippian", "Pennsylvanian", "Early Ordovician", "Middle Ordovician", "Late Ordovician", "Llandovery", "Wenlock", "Ludlow", "Pridoli", "Early Devonian", "Middle Devonian", "Late Devonian", "Cisuralian", "Late Jurassic", "Eocene", "Late Cretaceous", "Early Cretaceous", "Middle Jurassic", "Paleocene", "Lopingian", "Early Jurassic", "Guadalupian", "Middle Triassic", "Late Triassic", "Miocene", "Early Triassic", "Pliocene", "Pleistocene", "Oligocene")))
+> 
+> InOrderStandBr<-OutOrderStandBr[c("Middle Ordovician","Late Ordovician","Llandovery","Wenlock","Ludlow","Pridoli","Early Devonian", "Middle Devonian", "Late Devonian", "Mississippian", "Pennsylvanian", "Cisuralian", "Guadalupian", "Lopingian", "Early Triassic", "Middle Triassic", "Late Triassic", "Early Jurassic", "Middle Jurassic", "Late Jurassic", "Early Cretaceous", "Late Cretaceous", "Paleocene", "Eocene", "Oligocene", "Miocene", "Pliocene", "Pleistocene")]
+> VectorStandBr<-c(InOrderStandBr)
+> VectorUnstandBr<-c(InOrderUnstandBr)
+> cor(VectorStandBr,VectorUnstandBr)
+[1] 0.9969244
+> 
+> # The standardized brachiopod richness is positively correlated to the unstandardized brachiopod richness.
 
 3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the previous lab]
 
