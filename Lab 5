@@ -309,7 +309,7 @@ Pleistocene
 > cor(VectorStandBr,VectorUnstandBr)
 [1] 0.9969244
 > 
-> # The standardized brachiopod richness is positively correlated to the unstandardized brachiopod richness.
+> # The standardized brachiopod richness is positively correlated to the unstandardized brachiopod richness. Both of them increase in value through time regardless if they have been standardized or not.
 
 3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the previous lab]
 
@@ -319,9 +319,9 @@ Pleistocene
 >
 > plot(InOrderStandBr,InOrderStandBi)
 > plot(InOrderRichBrachiopod,InOrderRichBivalve)
-> #Both plots are negatively correlated but the standardized brachiopod richness versus standardized bivalve richness plot seems more linear whereas the unstandardized brachiopod richness versus unstandardized bivalve richness seems more exponential. The scale of the plots are also different from one another.
+> #Both plots are negatively correlated but the standardized brachiopod richness versus standardized bivalve richness plot seems more linear whereas the unstandardized brachiopod richness versus unstandardized bivalve richness seems more exponential. The standardized richness standardized the data to the sample with the smallest abundance which resulted in a linear plot. The scale of the standardized richness plot is also smaller than the unstandardized richness plot.
+
 
 4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
 
-
-
+Yes, since they are negatively correlated to each other. That is, the bivalve richness increased as the brachiopod richness decreased.
