@@ -282,6 +282,7 @@ Middle Ordovician   Late Ordovician        Llandovery           Wenlock         
 > #Brachiopod biodiversity is negatively correlated with bivalve biodiversity.
 
 3) Looking just at changes in brachiopod richness through time, when did the greatest drop in brachiopod richness occur (i.e., between what two consecutive epochs)?
+
 Between the K/Pg boundary, that is, between the Late Cretaceous and the Palaeocene epochs.
 
 -------------------------------------------------------------------------
@@ -293,18 +294,21 @@ Problem Set 4
 > SampleAbundancesBr[which(SampleAbundancesBr==min(SampleAbundancesBr))]
 Pleistocene 
          63 
-> StandardizedRichnessBr<-apply(BrachiopodAbundance,1,subsampleIndividuals,Quota=124)
-[1] "Fewer Individuals than Quota"
-[1] "Fewer Individuals than Quota"
-[1] "Fewer Individuals than Quota"
+> StandardizedRichnessBr<-apply(BrachiopodAbundance,1,subsampleIndividuals,Quota=63)
 > StandardizedRichnessBr[1:6]
     Mississippian     Pennsylvanian  Early Ordovician Middle Ordovician   Late Ordovician        Llandovery 
-            66.43             50.17             57.12             74.64             67.00             64.70 
+            42.67             35.05             38.36             46.27             42.18             41.58 
 
 2) How does the standardized brachiopod richness (previous question) compare to the unstandardized brachiopod richness from Problem Set 3? Show your code. Explain your reasoning. [Hint: Don't forget to put your biodiversities in temporal order]
 
-The values for the standardized brachiopod richness is less than the unstandardized brachiopod richness.
+Both the standardized brachiopod richness and the unstandardized brachiopod richness start at a lower value in the Pennsylvanian and increase until the Mississippian, then decrease then increase again until the Middle Ordovician then decreases again.
+
 
 3) Make a scatter plot of standardized brachiopod richness versus standardized bivalve richness. Make a second scatter plot of unstandardized brachiopod richness versus unstandardized bivalve richness. Compare and contrast the two plots. What are the differences or similarities? Does standardizing or not standardizing matter? Show your code and explain your reasoning in detail. [Hint: If you forgot how to plot, revist the previous lab]
 
+
+
 4) Do you believe that there is any evidence in these analyses to support the idea that bivalves outcompeted brachiopods over time? Explain your reasoning.
+
+
+
