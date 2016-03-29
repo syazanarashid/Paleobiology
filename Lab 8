@@ -167,7 +167,7 @@ Problem Set 3
 
 1) Download a dataset of Perissodactyla occurrences from the PBDB that span the Paleogene. Show your code.
 
-> DataPBDB<-downloadPBDB(Taxa=c("Perissodactyla"),StartInterval="Paleogene",StopInterval="Paleogene")
+> DataPBDB<-downloadPBDB(Taxa=c("Perissodactyla"),StartInterval="Paleocene",StopInterval="Eocene")
 
 2) What is the defining attribute of Perissodactyla? What are some prominent examples (e.g., lions, tigers, bears, oh my!)? [Hint: Neither lions, nor tigers, nor bears are members of Perissodactyla.]
 
@@ -176,7 +176,7 @@ Examples: horses, zebras, tapirs, rhinoceroses
 
 3) Find collection number 112723 in the dataset you just downloaded in Question 1. Show your code.
 
-> which(DataPBDB["collection_no", ])
+> which(DataPBDB[,"collection_no"]==112723)
 
 4) What "geoplate" id (tectonic plate) is associated with this collection? What modern day region of the world does this geoplate id correspond to? The remaining questions will refer to this geoplate/region as region-X.
 
