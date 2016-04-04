@@ -31,10 +31,10 @@ This function creates colors corresponding to the given intensities (between 0 a
 
 3) Download a map of the middle Cretaceous (Albian Epochs ~110 mys ago). Name it AlbianMap.
 
-4) Add AlbianMap to the plot you made earlier. The added continents should be colored green, and use the same level of opacity (translucence) as your CretaceousMap and ModernMap. Show your code!
-
 > # Download an Albian map
 > AlbianMap<-downloadPaleogeography(Age=110)
+
+4) Add AlbianMap to the plot you made earlier. The added continents should be colored green, and use the same level of opacity (translucence) as your CretaceousMap and ModernMap. Show your code!
 
 > plot(AlbianMap,col=rgb(0,1,0.1,0.33),lty=0.01,add=TRUE)
 
@@ -54,7 +54,6 @@ Problem Set 2
 
 > # Download an Paleocene/Eocene boundary map
 > PaleoceneEoceneMap<-downloadPaleogeography(Age=56)
-
 > plot(PaleoceneEoceneMap,col=rgb(0,1,0.1,0.33),lty=0.01)
 
 2) Download a dataset of Anthozoan occurrences from the paleobiology database ranging from the Paleocene through Eocene. Consult with previous labs if you do not remember how to do this. Show your code.
@@ -161,24 +160,44 @@ The name of the genus in which this occurrence is classified. If the block subge
 
 6) Where are most of the Anthozoan occurrences in the Eastern Hemisphere (i.e., what region of the world)? Are Anthozoans primarily marine or freshwater organisms? What can you infer must have existed in this region of the world during this time?
 
+Anthozoan occurances are mostly in the Europe and Turkey region.
+They are primarily marine organisms so this region must have been a marine environment during this time. 
 
 ------------------------------------
 Problem Set 3
 
 1) Download a dataset of Perissodactyla occurrences from the PBDB that span the Paleogene. Show your code.
 
-> DataPBDB<-downloadPBDB(Taxa=c("Perissodactyla"),StartInterval="Paleocene",StopInterval="Eocene")
+> DataPBDB<-downloadPBDB(Taxa=c("Perissodactyla"),StartInterval="Paleocene",StopInterval="Oligocene")
 
 2) What is the defining attribute of Perissodactyla? What are some prominent examples (e.g., lions, tigers, bears, oh my!)? [Hint: Neither lions, nor tigers, nor bears are members of Perissodactyla.]
 
 The defining attribute of Perissodactyla is the possession of either one or three hoofed toes on each hindfoot
+
 Examples: horses, zebras, tapirs, rhinoceroses
 
 3) Find collection number 112723 in the dataset you just downloaded in Question 1. Show your code.
 
 > which(DataPBDB[,"collection_no"]==112723)
+[1] 3548 3550
+> DataPBDB[3548,]
+     occurrence_no record_type reid_no flags collection_no          identified_name identified_rank identified_no difference
+3548        961980         occ      NA    NA        112723 Eotitanops pakistanensis         species        169823           
+                accepted_name accepted_rank accepted_no early_interval late_interval max_ma min_ma reference_no paleomodel paleolng
+3548 Eotitanops pakistanensis       species      169823       Ypresian                   56   47.8        36699     gp_mid     70.7
+     paleolat geoplate   phylum    class          order          family      genus
+3548     2.76      501 Chordata Mammalia Perissodactyla Brontotheriidae Eotitanops
+> DataPBDB[3550,]
+     occurrence_no record_type reid_no flags collection_no      identified_name identified_rank identified_no difference
+3550        963172         occ      NA    NA        112723 Balochititanops haqi         species        192106           
+            accepted_name accepted_rank accepted_no early_interval late_interval max_ma min_ma reference_no paleomodel paleolng paleolat
+3550 Balochititanops haqi       species      192106       Ypresian                   56   47.8        36699     gp_mid     70.7     2.76
+     geoplate   phylum    class          order          family           genus
+3550      501 Chordata Mammalia Perissodactyla Brontotheriidae Balochititanops
 
 4) What "geoplate" id (tectonic plate) is associated with this collection? What modern day region of the world does this geoplate id correspond to? The remaining questions will refer to this geoplate/region as region-X.
+
+Geoplate id 501, which correspond to modern day Pakistan.
 
 5) Subset your dataset of Perissodactyla occurrences to only include occurrences that occur in region-X. How many occurrences are there? Show your code.
 
