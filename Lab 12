@@ -107,7 +107,7 @@ Download a dataset of Anisian-Rhaetian Diapsids and Synapsids, and a dataset of 
 > JurassicDS<-downloadPBDB(c("Diapsida","Synapsida"),"Jurassic","Neogene")
 
 > TriassicDS<-cleanRank(TriassicDS,"genus")
-> JurassicDS<-cleanRank(TriassicDS,"genus")
+> JurassicDS<-cleanRank(JurassicDS,"genus")
 
 Question 2
 
@@ -127,13 +127,15 @@ Find which Triassic genera were survivors and which were victims of the Triassic
 > TriassicSurvivors<-subset(TriassicDS,TriassicDS[,"genus"]%in%unique(JurassicDS[,"genus"])==TRUE)
 > TriassicSurvivors<-unique(TriassicSurvivors[,"genus"])
 > head(TriassicSurvivors)
-[1] "Icarosaurus"    "Rutiodon"       "Kuehneosuchus"  "Kuehneosaurus"  "Trilophosaurus" "Clevosaurus"      
+[1] "Clevosaurus"        "Grallator"          "Rhynchosauroides"   "Rotodactylus"      
+[5] "Brachychirotherium" "Coelurosaurichnus"      
 
 # Find the Victims
 > TriassicVictims<-subset(TriassicDS,TriassicDS[,"genus"]%in%unique(JurassicDS[,"genus"])!=TRUE)
 > TriassicVictims<-unique(TriassicVictims[,"genus"])
 > head(TriassicVictims)
-character(0)
+[1] "Icarosaurus"      "Rutiodon"         "Kuehneosuchus"    "Kuehneosaurus"    "Trilophosaurus"  
+[6] "Diphydontosaurus"
 
 Question 4
 
@@ -147,69 +149,73 @@ Question 5
 
 Perform a logistic regression where the outcome variable is Survivor/Victim and the input variable is the mean latitude of each genus. Show your code. Was the mean latitude of a Triassic genus a good predictor of its survival across the T/J extinction?
 
-PTVictims<-array(0,dim=length(TriassicVictims),dimnames=list(TriassicVictims))
-head(PTVictims)
-numeric(0)
+> PTVictims<-array(0,dim=length(TriassicVictims),dimnames=list(TriassicVictims))
+> head(PTVictims)
+     Icarosaurus         Rutiodon    Kuehneosuchus    Kuehneosaurus   Trilophosaurus Diphydontosaurus 
+               0                0                0                0                0                0 
 
-FinalMatrix<-merge(TriassicMeanLatitudes,PTVictims,all=TRUE,by="row.names")
+> FinalMatrix<-merge(TriassicMeanLatitudes,PTVictims,all=TRUE,by="row.names")
+> 
+> head(FinalMatrix)
+      Row.names      x y
+1  Acaenasuchus 10.116 0
+2  Acallosuchus 10.430 0
+3 Acompsosaurus 10.740 0
+4   Actiosaurus 32.120 0
+5 Adamanasuchus 10.145 0
+6 Adelobasileus 10.170 0
+> 
 
-head(FinalMatrix)
-      Row.names      x  y
-1  Acaenasuchus 10.116 NA
-2  Acallosuchus 10.430 NA
-3 Acompsosaurus 10.740 NA
-4   Actiosaurus 32.120 NA
-5 Adamanasuchus 10.145 NA
-6 Adelobasileus 10.170 NA
-
-FinalMatrix<-transform(FinalMatrix,row.names=Row.names,Row.names=NULL)
-
-colnames(FinalMatrix)<-c("MeanLatitudes","Survivor/Victim")
-
-head(FinalMatrix)
+> FinalMatrix<-transform(FinalMatrix,row.names=Row.names,Row.names=NULL)
+> colnames(FinalMatrix)<-c("MeanLatitudes","Survivor/Victim")
+> head(FinalMatrix)
               MeanLatitudes Survivor/Victim
-Acaenasuchus         10.116              NA
-Acallosuchus         10.430              NA
-Acompsosaurus        10.740              NA
-Actiosaurus          32.120              NA
-Adamanasuchus        10.145              NA
-Adelobasileus        10.170              NA
+Acaenasuchus         10.116               0
+Acallosuchus         10.430               0
+Acompsosaurus        10.740               0
+Actiosaurus          32.120               0
+Adamanasuchus        10.145               0
+Adelobasileus        10.170               0
 
-FinalMatrix[is.na(FinalMatrix[,"Survivor/Victim"]),]<-1
-
-head(FinalMatrix)
+> FinalMatrix[is.na(FinalMatrix[,"Survivor/Victim"]),]<-1
+> head(FinalMatrix)
               MeanLatitudes Survivor/Victim
-Acaenasuchus              1               1
-Acallosuchus              1               1
-Acompsosaurus             1               1
-Actiosaurus               1               1
-Adamanasuchus             1               1
-Adelobasileus             1               1
+Acaenasuchus         10.116               0
+Acallosuchus         10.430               0
+Acompsosaurus        10.740               0
+Actiosaurus          32.120               0
+Adamanasuchus        10.145               0
+Adelobasileus        10.170               0
 
-Regression1<-glm(FinalMatrix[,"Survivor/Victim"]~FinalMatrix[,"MeanLatitudes"],family="binomial")
-
-summary(Regression1)
+> Regression1<-glm(FinalMatrix[,"Survivor/Victim"]~FinalMatrix[,"MeanLatitudes"],family="binomial")
+> summary(Regression1)
 
 Call:
 glm(formula = FinalMatrix[, "Survivor/Victim"] ~ FinalMatrix[, 
     "MeanLatitudes"], family = "binomial")
 
 Deviance Residuals: 
-      Min         1Q     Median         3Q        Max  
-2.409e-06  2.409e-06  2.409e-06  2.409e-06  2.409e-06  
+    Min       1Q   Median       3Q      Max  
+-0.4474  -0.4411  -0.4385  -0.4308   2.1889  
 
-Coefficients: (1 not defined because of singularities)
-                               Estimate Std. Error z value Pr(>|z|)
-(Intercept)                       26.57   15847.31   0.002    0.999
-FinalMatrix[, "MeanLatitudes"]       NA         NA      NA       NA
+Coefficients:
+                                 Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                    -2.3009122  0.1547326  -14.87   <2e-16 ***
+FinalMatrix[, "MeanLatitudes"]  0.0007725  0.0051555    0.15    0.881    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 (Dispersion parameter for binomial family taken to be 1)
 
-    Null deviance: 0.0000e+00  on 504  degrees of freedom
-Residual deviance: 2.9298e-09  on 504  degrees of freedom
-AIC: 2
+    Null deviance: 308.10  on 504  degrees of freedom
+Residual deviance: 308.08  on 503  degrees of freedom
+AIC: 312.08
 
-Number of Fisher Scoring iterations: 25
+Number of Fisher Scoring iterations: 5
+
+Was the mean latitude of a Triassic genus a good predictor of its survival across the T/J extinction?
+
+For every one degree increase in the latitude of the genus, its (log) odds of having survived the P/T event increases by 0.0007725. Yes, the mean latitude of a Triassic genus is a good predictor of its survival across the T/J extinction.
 
 ------------------------------------------------
 
