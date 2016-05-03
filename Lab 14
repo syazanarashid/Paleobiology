@@ -1,0 +1,97 @@
+Tuan Syazana Tuan Ab Rashid
+Lab 14
+Natural language processing (NLP), PaleoDeepDive, and “dark data”
+
++Which taxon names appear most often? Print the top 20 taxa. 
+
+3742                      A    7729
+3758                      L    7247
+4456                      C    7162
+3843                      P    6457
+4857                     An    5320
+3776                     Al    4896
+4242                    The    4762
+3885                     Ra    3950
+963                      Ac    2530
+1479                     Ac    2530
+4517                     Su    1849
+3889                     Gr    1534
+3800                     Cr    1223
+4258                     Fe    1203
+4558                     Fe    1203
+4224                    Ere    1169
+3796                     Ga    1094
+5012                     Ga    1094
+3881                     Ap    1066
+4854                     Ap    1066
+
+I handpicked the top taxon names that actually make sense because the first 20 names were just made up of 2 to 3 letters that don't make a distinguishable taxa name.
+
+1865                Articul      81
+5374                Articul      81
+5174                   Valv      72
+2663                Ammonit      67
+2669                Ammonit      67
+1162                 Ostrac      65
+2279                Gastrop      44
+5236                 Regula      36
+5590                 Regula      36
+3234                 Atheri      35
+5442                Tubular      33
+79                   Trilob      32
+5266               Irregula      32
+5586               Irregula      32
+2712                  Lobit      31
+3815                  Rapto      25
+5228                 Echino      25
+5246                 Echino      25
+1632                Brachio      24
+1633               Brachiop      24
+2627                Hematit      24
+
++What are the commonly used or colloquial names for these 20 taxa, if any? (Look them up online if you need to.) 
+
+Articulata - brachiopod
+Ammonites - molluscs
+ostracods - shrimp
+gastropods - snails, molluscs
+
+brachiopods
+echinoderms
+
++Which of these are probably not good data? Why? 
+
+The top 20 taxon names were too trauncated so none of them were good data. 
+
++Conversely, which taxa are likely candidates for pyritization, and why?
+
+ammonites, gastropods, and brachiopods, since they can survive anoxic conditions where pyrite would form.
+
+Step 5
+
+
+Print your list. Explain why you chose the string you did.
+
+my_taxon_name
+ostracod
+ammon
+trilobit
+bryozoa
+echino
+brachiopod
+cephalopod
+worm
+porifer
+coral
+annelid
+plant
+leaf
+foram
+bivalv
+baculit
+spong
+nannofossil
+gastropod
+snail
+
+I chose this list because they were more specific portions of words and had more colloquial terms that some authors prefer to use.
