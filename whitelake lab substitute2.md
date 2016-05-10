@@ -4,7 +4,7 @@ The Newest Synthesis: Understanding the Interplay of Evolutionary and Ecological
  
 ## Article Summary
 
-This paper by Schoener is a review on the relationship between evolution and ecological communities. Reznick et al. show rapid evolution in various traits in nature, and especially within areas with the influence of human predatory activities. In principle, rapid rates of evolution can mean a possibility of evolutionary dynamics affecting ecology or a feedback loop interaction instead of only ecology affecting evolution. 
+This paper by Schoener is a review on the relationship between evolution and ecological communities. Reznick et al. show rapid evolution in various traits in nature, and especially within areas with the influence of human predatory activities. In principle, rapid rates of evolution can mean a possibility of evolutionary dynamics affecting ecology or a feedback loop interaction instead of only ecology affecting evolution. Ecological and evolutionary correspondence was not recognized and perhaps due to low influence of fitness gains to the equilibrium population size and the inconsistency of the rate of evolution in paleontological records to rapid evolution in more recent studies.
 
 
 ## Things I liked about the paper
@@ -13,7 +13,7 @@ I think I can agree or am convinced that evolution and ecology interact with eac
 
 ## Things I did not like about the paper
 
-I do not really understand the part on Hairston's analysis on "evolutionary contribution" and "ecological contribution". How was it quantified when they said that the copecod has one-fourth the ecological contribution compared to the finch? They calculated a factor, but how can you 'really' quantify the contributions.
+I do not really understand the part on Hairston's analysis on "evolutionary contribution" and "ecological contribution". How was it quantified when they said that the copecod has one-fourth the ecological contribution compared to the finch? They calculated a factor, but how do you assess and quantify the contributions?
 
 ## Evaluate the graphs and figures (if any)
 
